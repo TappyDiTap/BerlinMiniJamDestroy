@@ -32,7 +32,6 @@ public class GameController : MonoBehaviour {
             }
         } 
     }
-
     public void RotateLeft() {
         //camera.transform.Rotate(90.0f, )
     }
