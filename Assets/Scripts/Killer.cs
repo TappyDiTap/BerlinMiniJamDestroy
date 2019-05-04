@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Destroyer : MonoBehaviour
+public class Killer : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -17,8 +17,7 @@ public class Destroyer : MonoBehaviour
     }
 
     void OnCollisionEnter(Collision collision){
-        Debug.Log("Destroyer Collision");
-        if(collision.gameObject.GetComponent<Destroyable>() == null) return;
-        collision.gameObject.GetComponent<Destroyable>().handleDestroyerCollision(this.gameObject);
+        if (collision.gameObject.tag != "Player") return;
+        collision.gameObject.GetComponent<Character>().kill();
     }
 }

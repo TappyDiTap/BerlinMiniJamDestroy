@@ -26,6 +26,10 @@ public class Destroyable : MonoBehaviour
         inflictDamage(damage);
     }
 
+    void OnCollisionEnter(){
+        Debug.Log("destroyable Collision");
+    }
+    
     int calculateDamage(double destroyerVelocity){
         double diff = (destroyerVelocity*velocityFactor) - velocityLimit;
         Debug.Log("velocity difference: " + diff);
