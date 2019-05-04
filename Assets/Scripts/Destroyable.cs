@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Audio;
 using UnityEngine;
 
 public class Destroyable : MonoBehaviour
@@ -15,7 +16,12 @@ public class Destroyable : MonoBehaviour
     // Start is called before the first frame update
     public float disappearDelay = 0.2f;
 
-    
+    public AudioMixer mixer; 
+    AudioSource Glas;
+
+    void Start(){
+        Glas = this.GetComponent<AudioSource>();
+    }
     public void handleDestroyerCollision(GameObject destroyer){
 //        double destroyerVelocity = destroyer.GetComponent<Rigidbody>().velocity.magnitude;
         double destroyerVelocity = destroyer.GetComponent<Destroyer>().velo;
@@ -30,7 +36,7 @@ public class Destroyable : MonoBehaviour
     void OnCollisionEnter(){
         Debug.Log("destroyable Collision");
     }
-    
+
     int calculateDamage(double destroyerVelocity){
         double diff = (destroyerVelocity*velocityFactor) - velocityLimit;
         Debug.Log("velocity difference: " + diff);
@@ -42,6 +48,11 @@ public class Destroyable : MonoBehaviour
     void inflictDamage(int damage){
         health -= damage;
         Debug.Log("new health: " + health);
-        if (health <= 0) Destroy(this.gameObject, disappearDelay);
+        if (health <= 0){
+            mixer.SetFloat("Glas", 0);
+            //gameObject.getComponenty#7#
+            Glas.Play();
+            Destroy(this.gameObject, disappearDelay);
+        }
     }
 }

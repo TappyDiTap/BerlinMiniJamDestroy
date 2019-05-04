@@ -18,11 +18,13 @@ public class Character2 : MonoBehaviour {
     private Vector3 xOffsetBodyVector;
     private Vector3 yOffsetBodyVector;
 
+    AudioSource Cat;
     // Start is called before the first frame update
     void Start() {
         body = transform.GetComponent<Rigidbody>();
         xOffsetBodyVector = new Vector3(xBoundingBox, 0.0f, 0.0f);
         yOffsetBodyVector = new Vector3(0.0f, yBoundingBox, 0.0f);
+        Cat = this.GetComponent<AudioSource>();
     }
 
     void Update() {
@@ -49,6 +51,7 @@ public class Character2 : MonoBehaviour {
         // jumping
         if(jumpInput && IsStanding()) {
             body.velocity += new Vector3(0.0f, jumpStrength, 0.0f);
+            Cat.Play();
         }
         jumpInput = false;
     }

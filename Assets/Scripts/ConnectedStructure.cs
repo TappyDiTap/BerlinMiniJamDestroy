@@ -7,6 +7,7 @@ public class ConnectedStructure : MonoBehaviour
     public List<GameObject> connections = new List<GameObject>();
     // Start is called before the first frame update
     private Rigidbody rb;
+    AudioSource Falling;
     void Start()
     {
         rb = this.gameObject.GetComponent<Rigidbody>();
@@ -14,6 +15,7 @@ public class ConnectedStructure : MonoBehaviour
             Debug.LogWarning("Rigidbody is null on object: " + this.gameObject.name);
             return;
         } 
+        Falling = this.GetComponent<AudioSource>();
       //  rb.Sleep();
     }
 
@@ -34,7 +36,8 @@ public class ConnectedStructure : MonoBehaviour
             }
             //  rb.WakeUp();
             rb.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezePositionX;
-                }
+            Falling.Play();
+        }
     }
 
     void clearNulls(){
