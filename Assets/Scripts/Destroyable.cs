@@ -13,17 +13,9 @@ public class Destroyable : MonoBehaviour
     //velocity factor
     public double velocityFactor = 1.0d;
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float disappearDelay = 0.2f;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    
     public void handleDestroyerCollision(GameObject destroyer){
         double destroyerVelocity = destroyer.GetComponent<Rigidbody>().velocity.magnitude;
         
@@ -45,6 +37,6 @@ public class Destroyable : MonoBehaviour
     void inflictDamage(int damage){
         health -= damage;
         Debug.Log("new health: " + health);
-        if (health <= 0) Destroy(this.gameObject);
+        if (health <= 0) Destroy(this.gameObject, disappearDelay);
     }
 }
