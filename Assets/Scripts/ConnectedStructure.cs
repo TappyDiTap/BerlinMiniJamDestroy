@@ -14,27 +14,33 @@ public class ConnectedStructure : MonoBehaviour
             Debug.LogWarning("Rigidbody is null on object: " + this.gameObject.name);
             return;
         } 
-        rb.Sleep();
+      //  rb.Sleep();
     }
 
     // Update is called once per frame
     void Update()
     {
-        clearNulls();
     }
 
     void FixedUpdate(){
-        if (connections.Count <= 0){
+        clearNulls();
+        if (connections.Count <= 0)
+        {
+            Debug.Log(connections.Count);
+            print("AHHHHHHHHH");
             if (rb == null) {
                 Debug.LogWarning("Rigidbody is null on object: " + this.gameObject.name);
                 return;
             }
-            rb.WakeUp();
-        }
+            //  rb.WakeUp();
+            rb.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezePositionX;
+                }
     }
 
     void clearNulls(){
-        foreach(GameObject o in connections){
+        List<GameObject> list = new List<GameObject>();
+        list.AddRange(connections);
+        foreach(GameObject o in list){
             if (o == null) connections.Remove(o);
         }
     }
