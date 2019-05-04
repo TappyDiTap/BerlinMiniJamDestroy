@@ -17,8 +17,9 @@ public class Destroyable : MonoBehaviour
 
     
     public void handleDestroyerCollision(GameObject destroyer){
-        double destroyerVelocity = destroyer.GetComponent<Rigidbody>().velocity.magnitude;
-        
+//        double destroyerVelocity = destroyer.GetComponent<Rigidbody>().velocity.magnitude;
+        double destroyerVelocity = destroyer.GetComponent<Destroyer>().velo;
+
         int damage = calculateDamage(destroyerVelocity);
         Debug.Log("velocity: " + destroyerVelocity);
         Debug.Log("damage dealt: " + damage);
