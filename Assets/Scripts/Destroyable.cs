@@ -10,6 +10,8 @@ public class Destroyable : MonoBehaviour
     public int health = 10;
     //factor for damage calculation
     public double damageFactor = 10.0d;
+    //velocity factor
+    public double velocityFactor = 1.0d;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +25,7 @@ public class Destroyable : MonoBehaviour
     }
 
     public void handleDestroyerCollision(GameObject destroyer){
-        double destroyerVelocity = destroyer.GetComponent<Rigidbody>().velocity.y;
+        double destroyerVelocity = destroyer.GetComponent<Rigidbody>().velocity.magnitude;
         
         int damage = calculateDamage(destroyerVelocity);
         Debug.Log("velocity: " + destroyerVelocity);
@@ -33,7 +35,8 @@ public class Destroyable : MonoBehaviour
     }
 
     int calculateDamage(double destroyerVelocity){
-        double diff = destroyerVelocity - velocityLimit;
+        double diff = (destroyerVelocity*velocityFactor) - velocityLimit;
+        Debug.Log("velocity difference: " + diff);
         int damage = 0;
         if (diff > 0) damage = (int)(damageFactor*diff);
         return damage;
