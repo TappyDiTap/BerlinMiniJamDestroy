@@ -6,10 +6,19 @@ public class GameController : MonoBehaviour {
     [HideInInspector] public GameController instance;
     public GameObject playerPrefab;
     public Camera camera;
+    public float rotationSpeed = 1.0f;
     public Vector3 respawnPosition;
     public int lives = 3;
+    public float gravity = 1.0f;
 
     private Character player;
+
+    private bool rotateRight = false;
+    private bool rotateLeft = false;
+    private float rotateAmount = 0.0f;
+    private float[] rotateTo = {0.0f, 90.0f, 180.0f, 270.0f};
+    private Vector3[] gravityDirection = {Vector3.down, Vector3.right, Vector3.up, Vector3.left};
+    private int rotationSetting = 0;
 
     // Singleton
     void Start() {
@@ -30,14 +39,63 @@ public class GameController : MonoBehaviour {
                 lives--;
                 SpawnPlayer();
             }
-        } 
+        }
+
+        if(Input.GetButton("RotateLeft") && !rotateLeft) {
+            RotateLeft();
+        }
+        else if(Input.GetButton("RotateRight") && !rotateRight) {
+            RotateRight();
+        }
+
+        if(rotateLeft || rotateRight) {
+            float change = rotationSpeed;
+            float rotationZ = camera.transform.rotation.eulerAngles.z;
+            if(rotateLeft) {
+                change = -rotationSpeed;
+            }
+
+            rotateAmount += rotationSpeed;
+            
+            // done rotating
+            if(rotateAmount >= 90.0f) {
+                camera.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotateTo[rotationSetting]);
+                print("Angle " + rotateTo[rotationSetting]);
+                rotateLeft = false;
+                rotateRight = false;
+                rotateAmount = 0.0f;
+
+                // finished rotating, set physics
+                Physics.gravity = gravityDirection[rotationSetting] * gravity;
+                UnfreezePhysics();
+            }
+
+            else {
+                camera.transform.Rotate(0, 0, rotationSpeed, Space.World);
+            }
+        }
     }
+
+    public void FreezePhysics() {
+        Time.timeScale = 0.0f;
+    }
+
+    public void UnfreezePhysics() {
+        Time.timeScale = 1.0f;
+    }
+
     public void RotateLeft() {
-        //camera.transform.Rotate(90.0f, )
+        FreezePhysics();
+        rotateLeft = true;
+        rotationSetting++;
+        if(rotationSetting > 3) rotationSetting = 0;
     }
 
     public void RotateRight() {
-
+        FreezePhysics();
+        rotateRight = true;
+        rotationSetting--;
+        if(rotationSetting < 0) rotationSetting = 3;
     }
 
 
