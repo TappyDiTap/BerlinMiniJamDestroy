@@ -28,6 +28,20 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!244 &-5618111622100748681
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Attenuation
+  m_EffectID: c71f66f50849f484a96d56837f0b9e4b
+  m_EffectName: Attenuation
+  m_MixLevel: 07f5300d2368250469f386b9a3f82da2
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!243 &-1132193520940740809
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -62,7 +76,19 @@ AudioMixerController:
   m_SuspendThreshold: -80
   m_EnableSuspend: 1
   m_UpdateMode: 0
-  m_ExposedParameters: []
+  m_ExposedParameters:
+  - guid: 2501db154a1d7184ba7313acae664203
+    name: Glas
+  - guid: 2767cccb917500c4eb4eaf8ba639aa1b
+    name: Wood
+  - guid: 0c5686fa88b6279488764359fb096acb
+    name: Cat
+  - guid: b3a85d9243dcd6e4b89f5606fef9834a
+    name: Falling
+  - guid: 54ca4a8e6bd80f14da6c2fb82d31583d
+    name: Master
+  - guid: a61c1f465c752c241a5d68bb231412b2
+    name: Win
   m_AudioMixerGroupViews:
   - guids:
     - 8df4cbca6ae1a8f4a985bc73555e1267
