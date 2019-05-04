@@ -18,6 +18,6 @@ public class Killer : MonoBehaviour
 
     void OnCollisionEnter(Collision collision){
         if (collision.gameObject.tag != "Player") return;
-        collision.gameObject.GetComponent<Character>().kill();
+        collision.gameObject.GetComponent<Character>().Kill();
     }
 }

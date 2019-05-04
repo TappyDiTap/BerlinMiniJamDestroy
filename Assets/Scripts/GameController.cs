@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spawn : MonoBehaviour {
-    public Spawn instance;
+public class GameController : MonoBehaviour {
+    [HideInInspector] public GameController instance;
     public GameObject playerPrefab;
+    public Camera camera;
     public Vector3 respawnPosition;
     public int lives = 3;
 
@@ -31,6 +32,15 @@ public class Spawn : MonoBehaviour {
             }
         } 
     }
+
+    public void RotateLeft() {
+        //camera.transform.Rotate(90.0f, )
+    }
+
+    public void RotateRight() {
+
+    }
+
 
     public void SpawnPlayer() {
         GameObject obj = Instantiate(playerPrefab, respawnPosition, Quaternion.identity);
