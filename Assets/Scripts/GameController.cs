@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class GameController : MonoBehaviour {
     [HideInInspector] public GameController instance;
     public GameObject playerPrefab;
     public Camera camera;
+    public CinemachineVirtualCamera virtualCamera;
     public float rotationSpeed = 1.0f;
     public Vector3 respawnPosition;
     public int lives = 3;
@@ -103,5 +105,6 @@ public class GameController : MonoBehaviour {
         GameObject obj = Instantiate(playerPrefab, respawnPosition, Quaternion.identity);
         player = obj.GetComponent<Character>();
         player.alive = true;
+        virtualCamera.Follow = obj.transform;
     }
 }
