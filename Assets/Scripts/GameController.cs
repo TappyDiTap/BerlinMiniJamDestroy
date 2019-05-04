@@ -12,7 +12,7 @@ public class GameController : MonoBehaviour {
     public int lives = 3;
     public float gravity = 1.0f;
 
-    private Character player;
+    private Character2 player;
 
     private Vector3 respawnPosition;
     private bool rotateRight = false;
@@ -25,7 +25,7 @@ public class GameController : MonoBehaviour {
     void Start() {
         respawnPosition = beginningPlayer.transform.position;
         virtualCamera.Follow = beginningPlayer.transform;
-        player = beginningPlayer.GetComponent<Character>();
+        player = beginningPlayer.GetComponent<Character2>();
         rotateAmount = 0.0f;
         print("Player : " + player);
     }
@@ -106,7 +106,7 @@ public class GameController : MonoBehaviour {
 
     public void SpawnPlayer() {
         GameObject obj = Instantiate(playerPrefab, respawnPosition, Quaternion.identity);
-        player = obj.GetComponent<Character>();
+        player = obj.GetComponent<Character2>();
         player.alive = true;
         virtualCamera.Follow = obj.transform;
     }

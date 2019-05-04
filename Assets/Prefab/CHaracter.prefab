@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: -634422610996483291}
   m_Layer: 0
   m_Name: CHaracter
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -209,6 +209,9 @@ MonoBehaviour:
   jumpStrength: 10
   xBoundingBox: 0.7
   yBoundingBox: 0.7
+  cat1: {fileID: 21300000, guid: b728e9930cc11c5438e5120383f2b8e6, type: 3}
+  cat2: {fileID: 21300000, guid: 62d45407d21cdec4d888e0147e53285c, type: 3}
+  cat3: {fileID: 21300000, guid: 84456d53ac8cb254ca3cc6bf16e5c5c0, type: 3}
 --- !u!114 &-6073205820141906118
 MonoBehaviour:
   m_ObjectHideFlags: 0
