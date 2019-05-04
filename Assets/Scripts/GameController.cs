@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
-    [HideInInspector] public GameController instance;
     public GameObject beginningPlayer;
     public GameObject playerPrefab;
-    public Camera camera;
     public CinemachineVirtualCamera virtualCamera;
     public float rotationSpeed = 1.0f;
     public int lives = 3;
@@ -23,27 +22,26 @@ public class GameController : MonoBehaviour {
     private Vector3[] gravityDirection = {Vector3.down, Vector3.right, Vector3.up, Vector3.left};
     private int rotationSetting = 0;
 
-    // Singleton
     void Start() {
-        if(instance == null) {
-            instance = this;
-            respawnPosition = beginningPlayer.transform.position;
-            virtualCamera.Follow = beginningPlayer.transform;
-            player = beginningPlayer.GetComponent<Character>();
-            //SpawnPlayer();
-        }
-        else {
-            Destroy(this.gameObject);
-        }
+        respawnPosition = beginningPlayer.transform.position;
+        virtualCamera.Follow = beginningPlayer.transform;
+        player = beginningPlayer.GetComponent<Character>();
+        rotateAmount = 0.0f;
+        print("Player : " + player);
     }
 
     // Update is called once per frame
     void Update() {
+        //if(player == null) return;
         // revive player
         if(player.alive == false) {
             if(lives > 1) {
                 lives--;
                 SpawnPlayer();
+            }
+            else {
+                // game over
+                SceneManager.LoadScene("GameOver");
             }
         }
 
@@ -55,8 +53,9 @@ public class GameController : MonoBehaviour {
         }
 
         if(rotateLeft || rotateRight) {
+            print("Hello2");
             float change = rotationSpeed;
-            float rotationZ = camera.transform.rotation.eulerAngles.z;
+            float rotationZ = transform.rotation.eulerAngles.z;
             if(rotateLeft) {
                 change = -rotationSpeed;
             }
@@ -65,7 +64,7 @@ public class GameController : MonoBehaviour {
             
             // done rotating
             if(rotateAmount >= 90.0f) {
-                camera.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotateTo[rotationSetting]);
+                transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotateTo[rotationSetting]);
                 print("Angle " + rotateTo[rotationSetting]);
                 rotateLeft = false;
                 rotateRight = false;
@@ -77,7 +76,7 @@ public class GameController : MonoBehaviour {
             }
 
             else {
-                camera.transform.Rotate(0, 0, rotationSpeed, Space.World);
+                transform.Rotate(0, 0, rotationSpeed, Space.World);
             }
         }
     }
