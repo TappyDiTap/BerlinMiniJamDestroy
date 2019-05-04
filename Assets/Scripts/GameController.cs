@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spawn : MonoBehaviour {
-    public Spawn instance;
+public class GameController : MonoBehaviour {
+    [HideInInspector] public GameController instance;
     public GameObject playerPrefab;
     public Vector3 respawnPosition;
     public int lives = 3;

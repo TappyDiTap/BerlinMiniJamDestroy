@@ -29,7 +29,7 @@ public class Character : MonoBehaviour {
         // handle inputs only if alive
         if(!alive)
             return;
-            
+
         // save inputs
         if(Input.GetButton("Jump") && jumpInput == false) {
             jumpInput = true;
@@ -76,6 +76,10 @@ public class Character : MonoBehaviour {
     // kills player, returns true if he was alive before
     public bool Kill() {
         bool before = alive;
+        if(before == true) {
+            print("Killed player :O");
+            body.constraints = 0;
+        }
         alive = false;
         return before;
     }
