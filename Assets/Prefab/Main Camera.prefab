@@ -164,9 +164,11 @@ GameObject:
   m_Component:
   - component: {fileID: 2070913324706203008}
   - component: {fileID: 2070913324706203015}
+  - component: {fileID: 4104708575538785317}
   - component: {fileID: 2070913324706203014}
   - component: {fileID: 2070913324706203009}
   - component: {fileID: 1877586117}
+  - component: {fileID: 1682111914}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -232,6 +234,27 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &4104708575538785317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070913324706203013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2220f3673ef21354fa6107c5dc35216c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  instance: {fileID: 0}
+  playerPrefab: {fileID: 2211340557513863951, guid: 2842c15c0401d564b999a1c00080665b,
+    type: 3}
+  camera: {fileID: 2070913324706203015}
+  virtualCamera: {fileID: 2070913324647606069}
+  rotationSpeed: 1
+  respawnPosition: {x: 0, y: 0, z: -10}
+  lives: 3
+  gravity: 1
 --- !u!81 &2070913324706203014
 AudioListener:
   m_ObjectHideFlags: 0
@@ -337,3 +360,23 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!114 &1682111914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070913324706203013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2220f3673ef21354fa6107c5dc35216c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  instance: {fileID: 0}
+  playerPrefab: {fileID: 0}
+  camera: {fileID: 0}
+  virtualCamera: {fileID: 0}
+  rotationSpeed: 1
+  respawnPosition: {x: 0, y: 0, z: 0}
+  lives: 3
+  gravity: 1

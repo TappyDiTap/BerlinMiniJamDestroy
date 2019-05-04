@@ -312,7 +312,6 @@ GameObject:
   m_Component:
   - component: {fileID: 404201889}
   - component: {fileID: 404201890}
-  - component: {fileID: 404201891}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -350,27 +349,10 @@ MonoBehaviour:
   playerPrefab: {fileID: 2211340557513863951, guid: 2842c15c0401d564b999a1c00080665b,
     type: 3}
   camera: {fileID: 425830691}
+  rotationSpeed: 1
   respawnPosition: {x: -4, y: 0, z: -10}
   lives: 3
---- !u!95 &404201891
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 404201888}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 91cf25f12c57a1e4b85649b8d63ae3cc, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  gravity: 20
 --- !u!1 &425830689
 GameObject:
   m_ObjectHideFlags: 0
