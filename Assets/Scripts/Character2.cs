@@ -12,12 +12,12 @@ public class Character2 : MonoBehaviour {
     public float xBoundingBox = 1.0f;
     public float yBoundingBox = 1.0f;
 
+    public SpriteRenderer spriteRender;
     public Sprite cat1;
     public Sprite cat2;
     public Sprite cat3;
 
     private Rigidbody body;
-    private SpriteRenderer spriteRender;
     private bool jumpInput = false;
     private float xInput = 0.0f;
     private Vector3 xOffsetBodyVector;
@@ -30,7 +30,6 @@ public class Character2 : MonoBehaviour {
         xOffsetBodyVector = new Vector3(xBoundingBox, 0.0f, 0.0f);
         yOffsetBodyVector = new Vector3(0.0f, yBoundingBox, 0.0f);
         Cat = this.GetComponent<AudioSource>();
-        spriteRender = this.GetComponent<SpriteRenderer>();
     }
 
     void Update() {

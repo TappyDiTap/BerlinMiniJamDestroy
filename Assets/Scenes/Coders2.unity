@@ -962,12 +962,12 @@ PrefabInstance:
     - target: {fileID: 5300957409365916207, guid: 3c5f060e2a821f743874954ddf709b2a,
         type: 3}
       propertyPath: m_Name
-      value: catfuss2
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 5300957409365916207, guid: 3c5f060e2a821f743874954ddf709b2a,
         type: 3}
-      propertyPath: m_TagString
-      value: Player
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 9208613796752132156, guid: 3c5f060e2a821f743874954ddf709b2a,
         type: 3}
@@ -1024,24 +1024,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4229203014263301026, guid: 3c5f060e2a821f743874954ddf709b2a,
+    - target: {fileID: 4229203014231626450, guid: 3c5f060e2a821f743874954ddf709b2a,
         type: 3}
-      propertyPath: cat1
-      value: 
-      objectReference: {fileID: 21300000, guid: b728e9930cc11c5438e5120383f2b8e6,
-        type: 3}
-    - target: {fileID: 4229203014263301026, guid: 3c5f060e2a821f743874954ddf709b2a,
-        type: 3}
-      propertyPath: cat2
-      value: 
-      objectReference: {fileID: 21300000, guid: 62d45407d21cdec4d888e0147e53285c,
-        type: 3}
-    - target: {fileID: 4229203014263301026, guid: 3c5f060e2a821f743874954ddf709b2a,
-        type: 3}
-      propertyPath: cat3
-      value: 
-      objectReference: {fileID: 21300000, guid: 84456d53ac8cb254ca3cc6bf16e5c5c0,
-        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c5f060e2a821f743874954ddf709b2a, type: 3}
 --- !u!23 &5024031039322143238

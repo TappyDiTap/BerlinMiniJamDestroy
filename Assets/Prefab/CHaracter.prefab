@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4229203014231626461}
   - component: {fileID: 4229203014231626460}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: New Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 4229203014263301026}
   - component: {fileID: -6073205820141906118}
   - component: {fileID: -634422610996483291}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CHaracter
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -209,6 +209,7 @@ MonoBehaviour:
   jumpStrength: 10
   xBoundingBox: 0.7
   yBoundingBox: 0.7
+  spriteRender: {fileID: 4229203014231626460}
   cat1: {fileID: 21300000, guid: b728e9930cc11c5438e5120383f2b8e6, type: 3}
   cat2: {fileID: 21300000, guid: 62d45407d21cdec4d888e0147e53285c, type: 3}
   cat3: {fileID: 21300000, guid: 84456d53ac8cb254ca3cc6bf16e5c5c0, type: 3}
