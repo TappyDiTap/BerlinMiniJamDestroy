@@ -5,16 +5,17 @@ using Cinemachine;
 
 public class GameController : MonoBehaviour {
     [HideInInspector] public GameController instance;
+    public GameObject beginningPlayer;
     public GameObject playerPrefab;
     public Camera camera;
     public CinemachineVirtualCamera virtualCamera;
     public float rotationSpeed = 1.0f;
-    public Vector3 respawnPosition;
     public int lives = 3;
     public float gravity = 1.0f;
 
     private Character player;
 
+    private Vector3 respawnPosition;
     private bool rotateRight = false;
     private bool rotateLeft = false;
     private float rotateAmount = 0.0f;
@@ -26,7 +27,10 @@ public class GameController : MonoBehaviour {
     void Start() {
         if(instance == null) {
             instance = this;
-            SpawnPlayer();
+            respawnPosition = beginningPlayer.transform.position;
+            virtualCamera.Follow = beginningPlayer.transform;
+            player = beginningPlayer.GetComponent<Character>();
+            //SpawnPlayer();
         }
         else {
             Destroy(this.gameObject);
@@ -35,7 +39,6 @@ public class GameController : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if(player == null) return;
         // revive player
         if(player.alive == false) {
             if(lives > 1) {
