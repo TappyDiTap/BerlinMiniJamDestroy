@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class dPlayer : MonoBehaviour
+public class dObsticle : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -13,11 +13,14 @@ public class dPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.transform.Translate(Input.GetAxis("Horizontal"), 0, 0);
+        
+    }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+    void OnCollisionEnter(Collision col)
+    {
+        if (col.gameObject.name == "Cat")
         {
-            
+            Destroy(this.gameObject);
         }
     }
 }
