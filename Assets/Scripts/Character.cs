@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Character : MonoBehaviour {
     // does the character accept input?
-    public bool active = true;
+    public bool alive = true;
 
     public float speedX = 1.0f;
     public float jumpStrength = 5.0f;
@@ -26,6 +26,10 @@ public class Character : MonoBehaviour {
     }
 
     void Update() {
+        // handle inputs only if alive
+        if(!alive)
+            return;
+            
         // save inputs
         if(Input.GetButton("Jump") && jumpInput == false) {
             jumpInput = true;
@@ -67,6 +71,13 @@ public class Character : MonoBehaviour {
 
         if(RaycastHit(yOffsetBodyVector, direction, xBoundingBox) || RaycastHit(-yOffsetBodyVector, direction, xBoundingBox)) return false;
         return true;
+    }
+
+    // kills player, returns true if he was alive before
+    public bool Kill() {
+        bool before = alive;
+        alive = false;
+        return before;
     }
 
     private bool RaycastHit(Vector3 offset, Vector3 direction, float distance) {
