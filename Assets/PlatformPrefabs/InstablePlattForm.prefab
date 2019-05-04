@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9014324162416602193}
   - component: {fileID: 8817358771991012098}
   - component: {fileID: 152186104506328322}
+  - component: {fileID: 2659908284050994223}
   m_Layer: 0
   m_Name: InstablePlattForm
   m_TagString: Untagged
@@ -26,13 +27,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6174658054056277885}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: -0.7069834, y: 0, z: 0, w: 0.7072302}
   m_LocalPosition: {x: 0, y: 7.5, z: -16}
   m_LocalScale: {x: 100, y: 100, z: 50}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.98, y: 0, z: 0}
 --- !u!33 &9014324162416602193
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -92,3 +93,20 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: -2746142260806068395, guid: 866db49ef107d3a44a62147868af2739, type: 3}
+--- !u!114 &2659908284050994223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6174658054056277885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bf1968381210674a9bf480151e7df4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocityLimit: 10
+  health: 10
+  damageFactor: 10
+  velocityFactor: 1
+  disappearDelay: 0.2
